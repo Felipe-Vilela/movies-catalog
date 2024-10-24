@@ -20,17 +20,15 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #d4d5dd;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: rgb(34, 72, 240);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -51,9 +49,9 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+/* button:hover {
   border-color: #646cff;
-}
+} */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -77,3 +75,6 @@ button:focus-visible {
     --radius: 0.5rem;
   }
 }
+
+
+
