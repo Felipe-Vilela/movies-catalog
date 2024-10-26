@@ -11,10 +11,10 @@ function Header() {
         <h2 className='text-xl font-bold'>Movies</h2>
 
         <ul className='flex gap-12 text-lg font-medium text-gray-700'>
-          <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/criar'>Criar</Link></li>
-          <li><Link to='/atualizar'>Atualizar</Link></li>
-          <li><Link to='/deletar'>Deletar</Link></li>
+          <li><Link to='/' className=' hover:text-red-500'>Inicio</Link></li>
+          <li><Link to='/criar' className=' hover:text-red-500'>Criar</Link></li>
+          <li><Link to='/atualizar' className=' hover:text-red-500'>Atualizar</Link></li>
+          <li><Link to='/deletar'  className=' hover:text-red-500' >Deletar</Link></li>
         </ul>
 
     </header>

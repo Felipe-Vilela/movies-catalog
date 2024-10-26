@@ -4,12 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Terminal } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription } from "@/components/ui/alert-dialog";
 
 function Deletar() {
   const [id, setId] = useState("");
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const nav = useNavigate();
 
@@ -35,6 +37,17 @@ function Deletar() {
         setData(null);
         setImageSrc(""); 
         setError(true);
+      });
+  };
+
+  const handleDelete = () => {
+    axios.delete(`https://671998e47fc4c5ff8f4ddc73.mockapi.io/users/${id}`)
+      .then(() => {
+        setData(null);
+        nav("/");
+      })
+      .catch(err => { console.log(err)
+        setIsDialogOpen(false); 
       });
   };
 
@@ -66,10 +79,10 @@ function Deletar() {
             </Button>
             <Button
               asChild
-              variant="outline"
+              variant="destructive"
               className="bg-zinc-800 border-transparent"
             >
-              <Link to="/">Voltar</Link>
+              <Link to="/">Cancelar</Link>
             </Button>
           </div>
         </form>
@@ -79,11 +92,11 @@ function Deletar() {
             <div className="flex justify-center">
               <Alert
                 variant="destructive"
-                className="mt-10 max-w-sm max-h-sm"
+                className="mt-10 max-w-md max-h-md"
               >
                 <Terminal className="h-4 w-4" />
                 <AlertTitle>Error</AlertTitle>
-                <AlertDescription>O Id não foi encontrado!</AlertDescription>
+                <AlertDescription>O Id não foi encontrado ou campo de busca está vazio!</AlertDescription>
               </Alert>
             </div>
             <div className="mt-5 flex justify-center">
@@ -124,6 +137,28 @@ function Deletar() {
                     className="w-1/2 h-auto rounded-lg shadow-lg"
                   />
                 )}
+              </div>
+              <div className="flex justify-center space-x-20 mt-10">
+                <AlertDialog  open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="outline" className="bg-zinc-800 border-transparent">Apagar</Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="bg-zinc-900 text-white max-w-md border-none">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle className="text-white">Confirmar exclusão</AlertDialogTitle>
+                      <AlertDialogDescription className="text-gray-400">
+                        Tem certeza de que deseja deletar este filme?
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <Button variant="outline" onClick={handleDelete} className="bg-zinc-800 border-transparent">Deletar</Button>
+                      <Button variant="destructive" onClick={() => setIsDialogOpen(false)} className="bg-zinc-800 border-transparent">Cancelar</Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+                <Button asChild variant="destructive" className="bg-zinc-800 border-transparent">
+                  <Link to="/">Cancelar</Link>
+                </Button>
               </div>
             </div>
           </div>

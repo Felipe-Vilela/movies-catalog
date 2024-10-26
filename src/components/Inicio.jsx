@@ -32,7 +32,7 @@ function Inicio() {
         Lista de Filmes
       </h1>
       <div className=" bg-transparent   border-collapse shadow-xl p-5 w-full max-w-3xl mx-auto mt-10">
-        <Table className="w-[500px] mx-auto mt-2">
+        <Table  className="w-[500px] mx-auto mt-2">
           <TableHeader>
             <TableRow className="hover:bg-transparent">
               <TableHead className="text-slate-200 font-bold px-6 w-[100px]">
