@@ -11,6 +11,7 @@ import Criar from "./components/Criar"
 import Atualizar from "./components/Atualizar"
 import Deletar from "./components/Deletar"
 import Ler from "./components/Ler"
+import Footer from "./components/Footer"
 
 function AppRoutes() {
 
@@ -28,7 +29,9 @@ function AppRoutes() {
               <Route path='/deletar/' element={<Deletar />} />
               <Route path="/ler/:id" element={<Ler />} />
               <Route path='*' element={<h1>Página não encontrada</h1>}></Route>
-            </Routes>         
+            </Routes>      
+
+            <Footer></Footer>   
           </BrowserRouter>
 
         </>

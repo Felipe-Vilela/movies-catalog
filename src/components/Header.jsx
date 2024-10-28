@@ -7,7 +7,7 @@ function Header() {
 
   return (
  
-    <header className='flex justify-around items-center relative top-0 w-full bg-zinc-900 p-4 shadow-md z-10'>
+    <header className='flex justify-around items-center relative top-0 w-full bg-zinc-900 p-4 z-10'>
         <h2 className='text-xl font-bold'>Movies</h2>
 
         <ul className='flex gap-12 text-lg font-medium text-gray-700'>

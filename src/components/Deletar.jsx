@@ -120,7 +120,7 @@ function Deletar() {
             </div>
           </div>
         ) : data ? (
-          <div className="flex flex-col items-center justify-center bg-zinc-900 p-5 mt-5">
+          <div className="flex flex-col items-center justify-center mb-5 bg-zinc-900 p-5 mt-5">
             <div className="bg-transparent w-full max-w-3xl mx-auto">
               <h3 className="flex justify-center text-4xl mb-5 font-semibold text-stone-300">
                 Detalhes do Filme

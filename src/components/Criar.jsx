@@ -27,7 +27,7 @@ function Criar() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-900">
-      <div className=" bg-transparent border-collapse shadow-xl p-5 w-full max-w-3xl mx-auto mt-10">
+      <div className=" bg-transparent border-collapse shadow-xl transparent  p-5 w-full max-w-3xl mx-auto mt-10">
         <h1 className="flex justify-center text-4xl font-semibold text-stone-300 ">Criar Filme</h1>
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div className="flex items-center justify-center gap-3">
