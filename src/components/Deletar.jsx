@@ -54,17 +54,17 @@ function Deletar() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-900">
       <div className="bg-transparent border-collapse shadow-xl p-5 w-full max-w-3xl mx-auto mt-10">
-        <h1 className="text-4xl font-semibold text-stone-300">Buscar Id</h1>
+        <h1 className="flex justify-center text-4xl font-semibold text-stone-300">Buscar Id</h1>
         <form onSubmit={handleSubmitSearchID} className="mt-6 space-y-4">
-          <div>
-            <label htmlFor="id" className="block mb-1 font-semibold">
-              Digite o id:
+          <div className="flex items-center justify-center gap-3">
+            <label htmlFor="id" className="flex justify-center text-lg font-semibold">
+              Id:
             </label>
             <input
               type="number"
               id="id"
               name="id"
-              className="form-input border border-zinc-900 rounded-md w-full mt-2 px-3 py-2 focus:outline-none focus:ring-0"
+              className="form-input border border-zinc-900 rounded-md w-auto mt-2 px-3 py-2 focus:outline-none focus:ring-0"
               placeholder="Digite o id do usuário"
               onChange={(e) => setId(e.target.value)} 
             />
@@ -82,7 +82,7 @@ function Deletar() {
               variant="destructive"
               className="bg-zinc-800 border-transparent"
             >
-              <Link to="/">Cancelar</Link>
+              <Link to="/">Voltar</Link>
             </Button>
           </div>
         </form>
