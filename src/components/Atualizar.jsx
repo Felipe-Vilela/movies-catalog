@@ -111,7 +111,7 @@ function Atualizar() {
             <div className="mt-5 flex justify-center">
               <Button
                 asChild
-                variant="outline"
+                variant="destructive"
                 className="bg-zinc-800 border-transparent"
               >
                 <Link to="/" className="text-white">

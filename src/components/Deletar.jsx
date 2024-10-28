@@ -12,6 +12,7 @@ function Deletar() {
   const [error, setError] = useState(false);
   const [imageSrc, setImageSrc] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState(false); 
 
   const nav = useNavigate();
 
@@ -44,9 +45,16 @@ function Deletar() {
     axios.delete(`https://671998e47fc4c5ff8f4ddc73.mockapi.io/users/${id}`)
       .then(() => {
         setData(null);
-        nav("/");
+        setIsDialogOpen(false);
+        setIsSuccessDialogOpen(true); 
+
+        setTimeout(() => {
+          setIsSuccessDialogOpen(false); 
+          nav("/"); 
+        }, 2500); 
       })
-      .catch(err => { console.log(err)
+      .catch(err => {
+        console.log(err);
         setIsDialogOpen(false); 
       });
   };
@@ -139,7 +147,7 @@ function Deletar() {
                 )}
               </div>
               <div className="flex justify-center space-x-20 mt-10">
-                <AlertDialog  open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <AlertDialogTrigger asChild>
                     <Button variant="outline" className="bg-zinc-800 border-transparent">Apagar</Button>
                   </AlertDialogTrigger>
@@ -163,6 +171,16 @@ function Deletar() {
             </div>
           </div>
         ) : null}
+        <AlertDialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
+          <AlertDialogContent className="border-2 border-green-500 bg-zinc-900 text-gray-800 rounded-lg shadow-md p-4">
+            <AlertDialogHeader>
+              <AlertDialogTitle className="text-green-600 font-semibold">Sucesso</AlertDialogTitle>
+              <AlertDialogDescription className="text-slate-100">
+                O filme foi removido com sucesso!
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );
